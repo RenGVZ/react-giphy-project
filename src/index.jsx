@@ -10,4 +10,3 @@ if (root) {
     <App />, root
   );
 }
- 
