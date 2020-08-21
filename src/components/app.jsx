@@ -4,13 +4,14 @@ import SearchBar from './search_bar';
 import Gif from './gif';
 import GifList from './gif_list';
 
+
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      gifsList: [],
-      selectedGifId: "gIYVGjGT97aA77A5Ej"
+      gifs: [],
+      selectedGifId: "UvVPGKTfVEPkYaXdMa"
     };
   }
 
@@ -19,9 +20,7 @@ class App extends Component {
       q: query,
       limit: 10
     }, (err, res) => {
-      this.setState({
-        gifsList: res.data
-      });
+      this.setState({ gifs: res.data });
     });
   }
 
@@ -29,15 +28,13 @@ class App extends Component {
     return (
       <div>
         <div className="left-scene">
-          <div className="search-bar">
-            <SearchBar searchFunc={this.search} />
-          </div>
+          <SearchBar searchFunction={this.search} />
           <div className="selected-gif">
             <Gif id={this.state.selectedGifId} />
           </div>
         </div>
         <div className="right-scene">
-          <GifList gifs={this.state.gifsList} className="gifs" />
+          <GifList gifs={this.state.gifs} />
         </div>
       </div>
     );
