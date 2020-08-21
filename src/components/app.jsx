@@ -15,6 +15,13 @@ class App extends Component {
     };
   }
 
+  switch = (image) => {
+    // console.log(image.split('/')[4])
+    this.setState({
+      selectedGifId: image.split('/')[4]
+    });
+  }
+
   search = (query) => {
     giphy('tOABssXIdHe3QlBdR0TSMB0aGdH8a6PW').search({
       q: query,
@@ -34,7 +41,7 @@ class App extends Component {
           </div>
         </div>
         <div className="right-scene">
-          <GifList gifs={this.state.gifs} />
+          <GifList gifs={this.state.gifs} clicked={this.switch} />
         </div>
       </div>
     );
