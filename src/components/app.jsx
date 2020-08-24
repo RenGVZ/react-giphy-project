@@ -16,7 +16,6 @@ class App extends Component {
   }
 
   switch = (image) => {
-    // console.log(image.split('/')[4])
     this.setState({
       selectedGifId: image.split('/')[4]
     });
