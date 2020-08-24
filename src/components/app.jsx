@@ -4,6 +4,7 @@ import SearchBar from './search_bar';
 import Gif from './gif';
 import GifList from './gif_list';
 
+const GIPHY_API_KEY = "tOABssXIdHe3QlBdR0TSMB0aGdH8a6PW";
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class App extends Component {
 
     this.state = {
       gifs: [],
-      selectedGifId: "UvVPGKTfVEPkYaXdMa"
+      selectedGifId: "CjmvTCZf2U3p09Cn0h"
     };
   }
 
@@ -22,9 +23,9 @@ class App extends Component {
   }
 
   search = (query) => {
-    giphy('tOABssXIdHe3QlBdR0TSMB0aGdH8a6PW').search({
+    giphy({apiKey: GIPHY_API_KEY, https: true }).search({
       q: query,
-      limit: 10
+      limit: 15
     }, (err, res) => {
       this.setState({ gifs: res.data });
     });

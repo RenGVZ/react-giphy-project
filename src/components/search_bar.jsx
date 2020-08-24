@@ -9,6 +9,7 @@ class SearchBar extends Component {
     return (
       <input
         type="text"
+        placeholder="Search for a gif..."
         className="form-control form-search"
         onChange={this.handleClick}
       />
